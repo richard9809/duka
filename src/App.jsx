@@ -14,7 +14,7 @@ function App() {
   return (
     <div className="h-screen w-screen overflow-y-auto bg-white">
       <Navbar />
-      <div className="h-full w-full">
+      <div className="h-full w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/electronics" element={<Electronics />} />

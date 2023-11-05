@@ -4,7 +4,10 @@ import Hero from '../components/Hero'
 const Home = () => {
   return (
     <div className='h-full w-full'>
-      <Hero />
+      <Hero
+        backgroundImage={"../src/images/shoe-1.jpg"} 
+        heroTitle={"Discover Style and Innovation Today."}
+      />
     </div>
   )
 }
