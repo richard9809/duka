@@ -14,6 +14,41 @@ body, html {
     font-family: 'Inter', 'sans-seriff';
 }
 
-.thinner {
-    font-weight: 300;
+header {
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+@media (max-width: 50em) {
+    .primary-navigation {
+        position: fixed;
+        z-index: 1000;
+        inset: 0 0 0 30%;
+        flex-direction: column;
+        padding: min(30vh, 10rem) 2em;
+        background-color:	
+        hsl(220,14.3%,95.9%);
+        transform: translateX(100%);
+        transition: transform 350ms ease-out;
+    }
+
+    .primary-navigation[data-visible="true"] {
+        transform: translateX(0%);
+    }
+
+    .mobile-nav-toggle {
+        position: absolute;
+        z-index: 9999;
+        background: url("../src/images/icon-menu.svg");
+        background-repeat: no-repeat;
+        width: 2rem;
+        border: 0;
+        aspect-ratio: 1;
+        top: 3.25rem;
+        right: 2rem;
+    }
+
+    .mobile-nav-toggle[aria-expanded="true"]{
+        background-image: url("../src/images/icon-menu-close.svg");
+    }
 }

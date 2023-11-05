@@ -1,94 +1,108 @@
 import React, { useState } from "react";
 import Logo from "../images/logo.png";
+import { Link, useLocation } from "react-router-dom";
 
 const Navbar = () => {
-  const [toggle, isToggle] = useState(false);
+  const tabs = [
+    {
+      id: 5,
+      name: "Home",
+      to: "/",
+    },
+    {
+      id: 1,
+      name: "Electronics",
+      to: "/electronics",
+    },
+    {
+      id: 2,
+      name: "Jewellery",
+      to: "/jewellery",
+    },
+    {
+      id: 3,
+      name: "Men's Clothing",
+      to: "/men",
+    },
+    {
+      id: 4,
+      name: "Women's Clothing",
+      to: "/women",
+    },
+  ];
+
+  const icons = [
+    {
+      id: 1,
+      iconName: "fa fa-search",
+    },
+    {
+      id: 2,
+      iconName: "fa fa-user",
+    },
+    {
+      id: 3,
+      iconName: "fa fa-bag-shopping",
+    },
+  ];
+
+  const location = useLocation();
+
+  const [isToggle, setIsToggle] = useState(false);
 
   const toggleMenu = () => {
-    isToggle(!toggle);
+    setIsToggle(!isToggle);
   };
 
   return (
-    <nav className="flex justify-between items-center py-8 px-8 border-b">
+    <header className=" items-center py-6 px-8 border-b shadow-md">
       {/* <img src={Logo} width={50} /> */}
-      <i className="fa-solid fa-snowflake text-6xl text-green-900"></i>
+      <div>
+        <i className="fa-solid fa-snowflake text-6xl text-green-900"></i>
+      </div>
 
       <button
-        data-collapse-toggle="navbar-default"
+        className="mobile-nav-toggle md:hidden"
         onClick={toggleMenu}
-        type="button"
-        className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-green-900 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600 md:hidden"
-        aria-controls="navbar-default"
-        aria-expanded={toggleMenu ? "true" : "false"}
+        aria-controls="primary-navigation"
+        aria-expanded={isToggle ? "true" : "false"}
       >
-        <span className="sr-only">Open main menu</span>
-        <svg
-          className="w-5 h-5"
-          aria-hidden="true"
-          xmlns="http://www.w3.org/2000/svg"
-          fill="none"
-          viewBox="0 0 17 14"
-        >
-          <path
-            stroke="currentColor"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M1 1h15M1 7h15M1 13h15"
-          />
-        </svg>
+        <span className="hidden">Menu</span>
       </button>
 
-      <div className={isToggle ? "block w-full md:w-auto" : "hidden md:block w-auto"} id="navbar-default">
-        <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700">
-          <li>
-            <a
-              href="#"
-              className="block py-2 pl-3 pr-4 text-white bg-blue-700 rounded md:bg-transparent md:text-gray-500 md:p-0 dark:text-white md:dark:text-blue-500 md:hover:text-green-900 md:hover:underline"
-              aria-current="page"
-            >
-              Electronics
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pl-3 pr-4 text-gray-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-900 md:hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Jewellery
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pl-3 pr-4 text-gray-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-900 md:hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Men's Clothing
-            </a>
-          </li>
-          <li>
-            <a
-              href="#"
-              className="block py-2 pl-3 pr-4 text-gray-500 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-green-900 md:hover:underline md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent"
-            >
-              Women's Clothing
-            </a>
-          </li>
+      <nav
+        id="primary-navigation"
+        data-visible={isToggle ? "true" : "false"}
+        className="primary-navigation md:flex md:items-center md:justify-between"
+      >
+        <ul role="list" className="md:flex md:gap-4">
+          {tabs.map((tab) => (
+            <li key={tab.id}>
+              <Link
+                to={tab.to}
+                className={`block py-2 pl-3 pr-4 text-gray-500 rounded hover:bg-gray-100 
+                    md:hover:bg-transparent md:border-0 md:hover:text-green-900 md:hover:underline 
+                    md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 
+                    dark:hover:text-white md:dark:hover:bg-transparent 
+                    ${location.pathname === tab.to ? 'text-green-900 font-bold' : ''}`}
+              >
+                {tab.name}
+              </Link>
+            </li>
+          ))}
         </ul>
-      </div>
 
-      <div className={isToggle ? "hidden md:flex gap-6" : "flex gap-6 md:flex"} >
-        <a href="">
-          <i className="fa fa-search text-2xl hover:text-green-900 text-gray-500"></i>
-        </a>
-        <a href="">
-          <i className="fa fa-user text-2xl hover:text-green-900 text-gray-500"></i>
-        </a>
-        <a href="">
-          <i className="fa fa-bag-shopping text-2xl hover:text-green-900 text-gray-500"></i>
-        </a>
-      </div>
-    </nav>
+        <div className="flex gap-5 py-4 px-2.5">
+          {icons.map((icon) => (
+            <a key={icon.id} href="">
+              <i
+                className={`${icon.iconName} text-2xl hover:text-green-900 text-gray-500`}
+              ></i>
+            </a>
+          ))}
+        </div>
+      </nav>
+    </header>
   );
 };
 
