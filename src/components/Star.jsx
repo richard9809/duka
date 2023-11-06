@@ -11,7 +11,7 @@ const Star = ({ rating }) => {
           return (
             <i
               key={index}
-              className={`fa-solid fa-star${index < roundedRating ? ' text-yellow-500' : ''}`}
+              className={`fa-solid fa-star${index < roundedRating ? ' text-yellow-500' : ''} text-xl`}
             ></i>
           );
         })}

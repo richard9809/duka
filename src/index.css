@@ -85,6 +85,18 @@ header {
     height: 100%;
 }
 
+@media (min-width: 50em) {
+  .card-product {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 50em;
+  }
+
+  .product-image {
+    height: 100%;
+  }
+}
+
 @media (max-width: 50em) {
     .primary-navigation {
         position: fixed;
@@ -117,10 +129,102 @@ header {
     .mobile-nav-toggle[aria-expanded="true"]{
         background-image: url("../src/images/icon-menu-close.svg");
     }
+
+    .product-image {
+      height: 20rem;
+      width: 100%;
+    }
 }
 
 .store {
   display: grid;
   gap: .75rem;
   grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+  row-gap: 1.5rem;
+}
+
+.scale-up-center {
+  -webkit-transform: scale(0.5);
+  transform: scale(0.5);
+  transition: transform 0.4s cubic-bezier(0.390, 0.575, 0.565, 1.000);
+}
+
+.scale-up-center:hover {
+  -webkit-transform: scale(1);
+  transform: scale(1);
+}
+
+/**
+ * ----------------------------------------
+ * animation scale-up-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+@keyframes scale-up-center {
+  0% {
+    -webkit-transform: scale(0.5);
+            transform: scale(0.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+.shadow-drop-2-center {
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  transition: transform 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940), box-shadow 0.4s cubic-bezier(0.250, 0.460, 0.450, 0.940);
+}
+
+.shadow-drop-2-center:hover {
+  -webkit-transform: translateZ(50px);
+  transform: translateZ(50px);
+  -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+}
+
+/**
+ * ----------------------------------------
+ * animation shadow-drop-2-center
+ * ----------------------------------------
+ */
+ @-webkit-keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
+}
+@keyframes shadow-drop-2-center {
+  0% {
+    -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+    -webkit-box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+            box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+  100% {
+    -webkit-transform: translateZ(50px);
+            transform: translateZ(50px);
+    -webkit-box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+            box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.35);
+  }
 }

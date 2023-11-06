@@ -9,6 +9,7 @@ import Electronics from "./pages/Electronics";
 import Jewellery from "./pages/Jewellery";
 import Men from "./pages/Men";
 import Women from "./pages/Women";
+import Product from "./pages/Product";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/jewellery" element={<Jewellery />} />
           <Route path="/men" element={<Men />} />
           <Route path="/women" element={<Women />} />
+          <Route path="/product/:id" element={<Product />} />
         </Routes>
       </main>
     </div>
