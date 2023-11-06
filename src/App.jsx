@@ -12,9 +12,9 @@ import Women from "./pages/Women";
 
 function App() {
   return (
-    <div className="h-screen w-screen overflow-y-auto bg-white">
+    <div className="app bg-white overflow-y-auto ">
       <Navbar />
-      <div className="h-full w-full overflow-x-hidden">
+      <main className="h-full w-full overflow-x-hidden">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/electronics" element={<Electronics />} />
@@ -22,7 +22,7 @@ function App() {
           <Route path="/men" element={<Men />} />
           <Route path="/women" element={<Women />} />
         </Routes>
-      </div>
+      </main>
     </div>
   );
 }

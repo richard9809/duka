@@ -5,8 +5,8 @@ const Women = () => {
   return (
     <div className='h-full w-full'>
       <Hero
-        backgroundImage={"../src/images/w3.jpg"} 
-        heroTitle={"Best Lady. Come Pick!!!"}
+        backgroundImage={"../src/images/women-1.jpg"} 
+        heroTitle={"Elegance Redefined: Women's Fashion Tailored for You."}
       />
     </div>
   )

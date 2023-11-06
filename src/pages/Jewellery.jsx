@@ -6,7 +6,7 @@ const Jewellery = () => {
     <div className='h-full w-full'>
       <Hero
         backgroundImage={"../src/images/jewellery.jpg"} 
-        heroTitle={"Shine Bright Like A Diamond"}
+        heroTitle={"Discover Elegance. Adorn Your Style."}
       />
     </div>
   )

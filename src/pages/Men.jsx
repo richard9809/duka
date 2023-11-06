@@ -5,8 +5,8 @@ const Men = () => {
   return (
     <div className='h-full w-full'>
       <Hero
-        backgroundImage={"../src/images/shoe-2.jpg"} 
-        heroTitle={"Best Male Sport Shoes!!!"}
+        backgroundImage={"../src/images/men.jpg"} 
+        heroTitle={"Revamp Your Wardrobe: Shop Stylish Men's Clothing."}
       />
     </div>
   )
