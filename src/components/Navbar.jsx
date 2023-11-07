@@ -84,7 +84,11 @@ const Navbar = () => {
                     md:hover:bg-transparent md:border-0 md:hover:text-green-900 md:hover:underline 
                     md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 
                     dark:hover:text-white md:dark:hover:bg-transparent 
-                    ${location.pathname === tab.to ? 'text-green-900 font-bold' : ''}`}
+                    ${
+                      location.pathname === tab.to
+                        ? "text-green-900 font-bold"
+                        : ""
+                    }`}
               >
                 {tab.name}
               </Link>
@@ -92,13 +96,22 @@ const Navbar = () => {
           ))}
         </ul>
 
-        <div className="flex gap-5 py-4 px-2.5">
+        <div className="flex gap-5 py-4 px-2.5 relative">
           {icons.map((icon) => (
-            <a key={icon.id} href="">
+            <Link
+              role="button"
+              key={icon.id}
+              to={icon.iconName === "fa fa-bag-shopping" ? "/cart" : ""}
+            >
               <i
                 className={`${icon.iconName} text-2xl hover:text-green-900 text-gray-500`}
               ></i>
-            </a>
+              {icon.iconName === "fa fa-bag-shopping" && (
+                <span className="bg-green-700 text-white text-xs font-medium absolute top-3  px-1.5 py-0.5 rounded-xl">
+                  3
+                </span>
+              )}
+            </Link>
           ))}
         </div>
       </nav>

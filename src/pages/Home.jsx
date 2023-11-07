@@ -4,7 +4,7 @@ import Store from "../components/Store";
 
 const Home = () => {
   return (
-    <div className="bg-red-100 screen-height">
+    <div className="screen-height">
       <Hero
         backgroundImage={"../src/images/shoe-1.jpg"}
         heroTitle={"Discover Style and Innovation Today."}
